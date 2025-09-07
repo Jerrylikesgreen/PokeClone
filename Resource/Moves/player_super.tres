@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Moves" load_steps=2 format=3 uid="uid://brx2u1kqa0qsd"]
+
+[ext_resource type="Script" uid="uid://bls0lnmd3s4ta" path="res://Scripts/moves_resouce_script.gd" id="1_l7hkr"]
+
+[resource]
+script = ExtResource("1_l7hkr")
+name = "Player Super"
+description = "Yay"
+type = 0
+element = 1
+_heal = false
+power = 50
+pp = 10
+hit_chance = 1.0
+metadata/_custom_type_script = "uid://bls0lnmd3s4ta"

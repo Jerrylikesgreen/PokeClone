@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="DropResource" load_steps=2 format=3 uid="uid://bfqhiir0unocb"]
+
+[ext_resource type="Script" uid="uid://c2yghq7c71sln" path="res://Scripts/drop_resource_script.gd" id="1_xpcyq"]
+
+[resource]
+script = ExtResource("1_xpcyq")
+name = "small_trainer_exp"
+description = "small_trainer_exp gain. "
+type = 3
+value = 10
+metadata/_custom_type_script = "uid://c2yghq7c71sln"

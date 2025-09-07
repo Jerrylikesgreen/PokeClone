@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Moves" load_steps=2 format=3 uid="uid://cc4wvcgs00x00"]
+
+[ext_resource type="Script" uid="uid://bls0lnmd3s4ta" path="res://Scripts/moves_resouce_script.gd" id="1_4gatk"]
+
+[resource]
+script = ExtResource("1_4gatk")
+name = "Pinga"
+description = "Heals"
+type = 1
+element = 4
+_heal = true
+power = 10
+pp = 10
+hit_chance = 1.0
+metadata/_custom_type_script = "uid://bls0lnmd3s4ta"

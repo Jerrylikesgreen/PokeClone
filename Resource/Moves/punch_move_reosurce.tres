@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Moves" load_steps=2 format=3 uid="uid://cvy80ll7iabpr"]
+
+[ext_resource type="Script" uid="uid://bls0lnmd3s4ta" path="res://Scripts/moves_resouce_script.gd" id="1_h50io"]
+
+[resource]
+script = ExtResource("1_h50io")
+name = "Punch"
+description = "Punch - pow pow "
+type = 0
+element = 0
+power = 10
+pp = 10
+hit_chance = 1.0
+metadata/_custom_type_script = "uid://bls0lnmd3s4ta"

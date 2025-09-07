@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="MonsResource" load_steps=13 format=3 uid="uid://be3t5i03ni4bc"]
+
+[ext_resource type="Script" uid="uid://c2yghq7c71sln" path="res://Scripts/drop_resource_script.gd" id="1_ch8v4"]
+[ext_resource type="Script" uid="uid://bls0lnmd3s4ta" path="res://Scripts/moves_resouce_script.gd" id="1_fgndh"]
+[ext_resource type="Resource" uid="uid://bo6auh0f3rgqs" path="res://Resource/Moves/exp_small_drop_resource.tres" id="2_6420g"]
+[ext_resource type="Script" uid="uid://bxs8wh0jlabr0" path="res://Scripts/mons_resource_script.gd" id="2_g5sjb"]
+[ext_resource type="Resource" uid="uid://cvy80ll7iabpr" path="res://Resource/Moves/punch_move_reosurce.tres" id="3_71osy"]
+[ext_resource type="Resource" uid="uid://brx2u1kqa0qsd" path="res://Resource/Moves/player_super.tres" id="3_bugvf"]
+[ext_resource type="Texture2D" uid="uid://dadqoi2l8vlfc" path="res://icon.svg" id="3_fstko"]
+[ext_resource type="Resource" uid="uid://beoxaj06m1eyk" path="res://Resource/Moves/item_small_quanity_resource.tres" id="3_mgiya"]
+[ext_resource type="Resource" uid="uid://dxhka4jq5vl7i" path="res://Resource/Moves/small_monioes_gain.tres" id="4_36e2u"]
+[ext_resource type="Resource" uid="uid://cd4kl0y1s0aw3" path="res://Resource/Moves/lazores_move_reosurce.tres" id="4_bugvf"]
+[ext_resource type="Resource" uid="uid://bfqhiir0unocb" path="res://Resource/Moves/small_trainer_exp.tres" id="5_5v0ix"]
+[ext_resource type="Resource" uid="uid://cc4wvcgs00x00" path="res://Resource/Moves/pinga_move_reosurce.tres" id="5_j0rk7"]
+
+[resource]
+script = ExtResource("2_g5sjb")
+mon_name = ""
+sprite = ExtResource("3_fstko")
+lvl = 0
+exp = 0
+max_exp = 10
+max_health = 100
+health = 100
+attack = 100
+s_attack = 10
+defence = 10
+s_defence = 10
+speed = 10
+move_pool = Array[ExtResource("1_fgndh")]([ExtResource("3_bugvf"), ExtResource("3_71osy"), ExtResource("4_bugvf"), ExtResource("5_j0rk7")])
+drop_pool = Array[ExtResource("1_ch8v4")]([ExtResource("2_6420g"), ExtResource("3_mgiya"), ExtResource("4_36e2u"), ExtResource("5_5v0ix")])

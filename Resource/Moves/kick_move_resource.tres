@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Moves" load_steps=2 format=3 uid="uid://bdqk1favo8hm"]
+
+[ext_resource type="Script" uid="uid://bls0lnmd3s4ta" path="res://Scripts/moves_resouce_script.gd" id="1_eqw2s"]
+
+[resource]
+script = ExtResource("1_eqw2s")
+name = "Kick"
+description = "Kick - Kicking "
+type = 0
+element = 3
+power = 10
+pp = 10
+hit_chance = 1.0
+metadata/_custom_type_script = "uid://bls0lnmd3s4ta"

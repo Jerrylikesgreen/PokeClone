@@ -1,0 +1,42 @@
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://bro4f0agqms1f"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7rkql"]
+bg_color = Color(0.0839613, 0.216417, 0.169296, 1)
+border_width_top = 10
+border_width_bottom = 10
+border_color = Color(0.0313726, 0.0705882, 0.0313726, 0.921569)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q8lot"]
+bg_color = Color(0.241913, 0.700463, 0.432156, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 0.729412)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+shadow_size = 2
+shadow_offset = Vector2(1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_exkre"]
+bg_color = Color(0.113292, 0.267143, 0.399733, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.01, 0.01, 0.01, 1)
+border_blend = true
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+shadow_size = 2
+shadow_offset = Vector2(1, 1)
+
+[resource]
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_7rkql")
+ProgressBar/styles/background = SubResource("StyleBoxFlat_q8lot")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_exkre")
+VBoxContainer/constants/separation = 0

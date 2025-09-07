@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="MonsResource" load_steps=13 format=3 uid="uid://dsdbty3rtb8ab"]
+
+[ext_resource type="Script" uid="uid://c2yghq7c71sln" path="res://Scripts/drop_resource_script.gd" id="1_kjblx"]
+[ext_resource type="Script" uid="uid://bls0lnmd3s4ta" path="res://Scripts/moves_resouce_script.gd" id="1_n5mno"]
+[ext_resource type="Resource" uid="uid://bdqk1favo8hm" path="res://Resource/Moves/kick_move_resource.tres" id="2_ruith"]
+[ext_resource type="Resource" uid="uid://bo6auh0f3rgqs" path="res://Resource/Moves/exp_small_drop_resource.tres" id="2_wo5rf"]
+[ext_resource type="Script" uid="uid://bxs8wh0jlabr0" path="res://Scripts/mons_resource_script.gd" id="2_x5hna"]
+[ext_resource type="Texture2D" uid="uid://dadqoi2l8vlfc" path="res://icon.svg" id="3_es05x"]
+[ext_resource type="Resource" uid="uid://beoxaj06m1eyk" path="res://Resource/Moves/item_small_quanity_resource.tres" id="3_fb8o5"]
+[ext_resource type="Resource" uid="uid://cd4kl0y1s0aw3" path="res://Resource/Moves/lazores_move_reosurce.tres" id="3_kjblx"]
+[ext_resource type="Resource" uid="uid://dxhka4jq5vl7i" path="res://Resource/Moves/small_monioes_gain.tres" id="4_5bcd2"]
+[ext_resource type="Resource" uid="uid://cc4wvcgs00x00" path="res://Resource/Moves/pinga_move_reosurce.tres" id="4_wqx30"]
+[ext_resource type="Resource" uid="uid://bfqhiir0unocb" path="res://Resource/Moves/small_trainer_exp.tres" id="5_q0pj3"]
+[ext_resource type="Resource" uid="uid://cvy80ll7iabpr" path="res://Resource/Moves/punch_move_reosurce.tres" id="5_wo5rf"]
+
+[resource]
+script = ExtResource("2_x5hna")
+mon_name = ""
+sprite = ExtResource("3_es05x")
+lvl = 0
+exp = 0
+max_exp = 10
+max_health = 100
+health = 100
+attack = 10
+s_attack = 10
+defence = 10
+s_defence = 10
+speed = 10
+move_pool = Array[ExtResource("1_n5mno")]([ExtResource("2_ruith"), ExtResource("3_kjblx"), ExtResource("4_wqx30"), ExtResource("5_wo5rf")])
+drop_pool = Array[ExtResource("1_kjblx")]([ExtResource("2_wo5rf"), ExtResource("3_fb8o5"), ExtResource("4_5bcd2"), ExtResource("5_q0pj3")])

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemResource" load_steps=2 format=3 uid="uid://kytgre3wifaq"]
+
+[ext_resource type="Script" uid="uid://c2yghq7c71sln" path="res://Scripts/drop_resource_script.gd" id="1_7yq3b"]
+
+[resource]
+script = ExtResource("1_7yq3b")
+name = ""
+value = 0
+discription = ""
+item_type = null
+effects = {}

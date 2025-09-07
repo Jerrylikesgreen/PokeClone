@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="DropResource" load_steps=2 format=3 uid="uid://beoxaj06m1eyk"]
+
+[ext_resource type="Script" uid="uid://c2yghq7c71sln" path="res://Scripts/drop_resource_script.gd" id="1_mavl1"]
+
+[resource]
+script = ExtResource("1_mavl1")
+name = "ITEM_SMALL"
+description = "Low Quantity Item"
+type = 0
+value = 1
+metadata/_custom_type_script = "uid://c2yghq7c71sln"
