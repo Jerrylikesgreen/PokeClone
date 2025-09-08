@@ -1,8 +1,13 @@
 class_name BattleScreen
 extends CanvasLayer
-
-@onready var attack: Button = $BattleManager/VBoxContainer/PlayerPanel/BattleMenu/BattleMenuButtons/Attack
+@onready var attack: AttackButton = %Attack
 @onready var battle_manager: BattleManager = %BattleManager
+@onready var enemy_mons: EnemyMons = %EnemyMons
+@onready var enemy_progress_bar: ProgressBar = %EnemyProgressBar
+@onready var enemy_health_bar: ProgressBar = %EnemyHealthBar
+@onready var debug_lable: RichTextLabel = %DebugLable
+@onready var enemy_mons_name: Label = %EnemyMonsName
+@onready var player_health_bar: ProgressBar = %PlayerHealthBar
 
 @onready var move_slot_1: Button = %MoveSlot1
 @onready var move_slot_2: Button = %MoveSlot2
@@ -17,6 +22,7 @@ var _move_buttons: Array[Button]
 var _battling:bool = false 
 
 func _ready() -> void:
+	Events.battle_started_signal.connect(_on_battle_start)
 	_move_buttons = [move_slot_1, move_slot_2, move_slot_3, move_slot_4]
 	for btns in _move_buttons:
 		btns.on_move_slot_pressed_signal.connect(_on_move_slot_pressed)
@@ -26,10 +32,16 @@ func _ready() -> void:
 	battle_manager._battle_ended_signal.connect(_on_battle_ended)
 
 
+
+
 func _on_battle_ended() -> void:
 	visible = false
 	_battling = false
+	dialog_display.get_child(0)._finish()
 	dialog_display.visible = false
+	Events.battle_ended_signal.emit()
+	print("battle ended signal")
+	
 
 
 func _on_attack_button_pressed() -> void:
@@ -79,10 +91,27 @@ func _heal(_target: MonsResource, move_selected: Moves)->void:
 	var _dmg_calculation:int = _def * .5 * _dmg * .2
 	Events.heal_done(_dmg_calculation, _target)
 	print(_dmg_calculation, "Healed")
+	
 
 func _damage(target:MonsResource, move_used:Moves)->void:
 	var _dmg:int = move_used.power
 	var _def:int = target.defence
 	var _dmg_calculation:int = _def * .5 * _dmg * .2
 	Events.damage_done(_dmg_calculation, target)
-	print(_dmg_calculation, "Damaged")
+	var _debug_text = "\n%d Points of Damage done to %s" % [_dmg_calculation, target.mon_name]
+	debug_lable.append_text(_debug_text)
+
+	
+
+func _on_battle_start(mon:MonsResource)->void:
+	if _battling:
+		return
+	visible = true
+	dialog_display.visible = true
+	battle_manager.enemy_mon_resource = mon
+	enemy_mons_name.set_text(mon.mon_name)
+	battle_manager.enemy_progress_bar_timer.start()
+	enemy_health_bar.value = mon.health
+	var text:String = str(mon.health) + mon.mon_name
+	debug_lable.append_text(text)
+	_battling = true

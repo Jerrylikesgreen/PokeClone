@@ -1,10 +1,12 @@
 ## Autoload - Events
 extends Node
 ## target: MonsResource, previous: int, current: int
-signal target_health_changed(target: MonsResource, previous: int, current: int)
+signal target_health_changed_signal(target: MonsResource, previous: int, current: int)
 signal target_ko(target: MonsResource)
 signal show_dialog_signal(out_text:String)
-
+signal battle_started_signal(mon:MonsResource)
+signal battle_ended_signal
+signal target_healed_signal(target: MonsResource, previous: int, current: int)
 
 func show_dialog(in_text:String)->void:
 	emit_signal("show_dialog_signal", in_text)
@@ -25,7 +27,7 @@ func damage_done(dmg: int, target: MonsResource) -> bool:
 	var curr = prev - actual        # never below 0
 
 	target.health = curr
-	emit_signal("target_health_changed", target, prev, curr)
+	emit_signal("target_health_changed_signal", target, prev, curr)
 	print("target_health_changed" + str(target))
 
 
@@ -42,4 +44,10 @@ func heal_done(heal: int, target: MonsResource) -> void:
 	var curr = prev + heal
 
 	target.health = curr
-	emit_signal("target_health_changed", target, prev, curr)
+	emit_signal("target_healed_signal", target, prev, curr)
+	print("Heal Signal Sent from Events")
+
+
+func battle_started(mon:MonsResource)->void:
+	
+	emit_signal("battle_started_signal", mon)

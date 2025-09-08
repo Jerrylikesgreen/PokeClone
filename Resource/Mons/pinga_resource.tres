@@ -17,11 +17,12 @@
 script = ExtResource("2_x5hna")
 mon_name = ""
 sprite = ExtResource("3_es05x")
+_player = false
 lvl = 0
-exp = 0
+current_exp = 0
 max_exp = 10
 max_health = 100
-health = 100
+health = 0
 attack = 10
 s_attack = 10
 defence = 10

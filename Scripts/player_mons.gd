@@ -5,7 +5,7 @@ var player_mon_resource: MonsResource
 @onready var player_health_bar: ProgressBar = %PlayerHealthBar
 
 func _ready() -> void:
-	Events.target_health_changed.connect(_on_health_changed)
+	Events.target_healed_signal.connect(_on_health_changed)
 	Events.target_ko.connect(_on_target_ko)
 
 func _on_target_ko(target: MonsResource) -> void:
@@ -38,8 +38,8 @@ func _on_target_ko(target: MonsResource) -> void:
 
 
 
-func _grant_drop(drop: DropResource, defeated: MonsResource) -> Dictionary:
-	var exp := 0
+func _grant_drop(drop: DropResource, _defeated: MonsResource) -> Dictionary:
+	var exp_drop := 0
 	var monies := 0
 	var trainer_xp := 0
 	var items: Array = []  # each: {"name": String, "qty": int}
@@ -47,7 +47,7 @@ func _grant_drop(drop: DropResource, defeated: MonsResource) -> Dictionary:
 	match drop.type:
 		DropResource.DropType.EXP:
 			player_mon_resource.gain_exp(drop.value)
-			exp = int(drop.value)
+			exp_drop = int(drop.value)
 
 		DropResource.DropType.MONEY:
 			Globals.monies += drop.value
@@ -67,7 +67,7 @@ func _grant_drop(drop: DropResource, defeated: MonsResource) -> Dictionary:
 				items.append({"name": drop.name, "qty": int(drop.value)})
 
 	return {
-		"exp": exp,
+		"exp": exp_drop,
 		"money": monies,
 		"trainer_xp": trainer_xp,
 		"items": items
@@ -76,7 +76,7 @@ func _grant_drop(drop: DropResource, defeated: MonsResource) -> Dictionary:
 
 
 func _on_health_changed(target: MonsResource, previous: int, current: int)->void:
+	print("Hp Changed")
 	if target == player_mon_resource:
 		player_health_bar.value = player_mon_resource.health
-	else:
-		return
+		print("player HP Changed ", player_health_bar.value )

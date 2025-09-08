@@ -15,14 +15,15 @@
 
 [resource]
 script = ExtResource("2_g5sjb")
-mon_name = ""
+mon_name = "Player's Mon"
 sprite = ExtResource("3_fstko")
-lvl = 0
+_player = true
+lvl = 1
 exp = 0
 max_exp = 10
 max_health = 100
 health = 100
-attack = 100
+attack = 10
 s_attack = 10
 defence = 10
 s_defence = 10

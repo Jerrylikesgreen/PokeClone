@@ -1,4 +1,7 @@
-[gd_resource type="Theme" load_steps=4 format=3 uid="uid://bro4f0agqms1f"]
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://bro4f0agqms1f"]
+
+[ext_resource type="StyleBox" uid="uid://cwaib4kaxgfxe" path="res://Resource/Themes/button_battle_focus.tres" id="1_esx1d"]
+[ext_resource type="StyleBox" uid="uid://p5e6tmpyyy6g" path="res://Resource/Themes/button_battle.tres" id="2_wu37h"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7rkql"]
 bg_color = Color(0.0839613, 0.216417, 0.169296, 1)
@@ -17,7 +20,8 @@ corner_radius_top_left = 2
 corner_radius_top_right = 2
 corner_radius_bottom_right = 2
 corner_radius_bottom_left = 2
-shadow_size = 2
+shadow_color = Color(0, 0, 0, 0.137255)
+shadow_size = 3
 shadow_offset = Vector2(1, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_exkre"]
@@ -27,16 +31,25 @@ border_width_top = 3
 border_width_right = 3
 border_width_bottom = 3
 border_color = Color(0.01, 0.01, 0.01, 1)
-border_blend = true
 corner_radius_top_left = 3
 corner_radius_top_right = 3
 corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
-shadow_size = 2
-shadow_offset = Vector2(1, 1)
 
 [resource]
+Button/colors/font_pressed_color = Color(0.0756, 0.18, 0.07908, 1)
+Button/constants/line_spacing = 0
+Button/constants/outline_size = 16
+Button/font_sizes/font_size = 42
+Button/styles/focus = ExtResource("1_esx1d")
+Button/styles/hover = ExtResource("1_esx1d")
+Button/styles/normal = ExtResource("2_wu37h")
+Button/styles/pressed = ExtResource("1_esx1d")
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_7rkql")
+ProgressBar/colors/font_color = Color(0.0745098, 0.180392, 0.0784314, 0.945098)
+ProgressBar/colors/font_outline_color = Color(0, 0, 0, 1)
+ProgressBar/constants/outline_size = 12
+ProgressBar/font_sizes/font_size = 32
 ProgressBar/styles/background = SubResource("StyleBoxFlat_q8lot")
 ProgressBar/styles/fill = SubResource("StyleBoxFlat_exkre")
 VBoxContainer/constants/separation = 0

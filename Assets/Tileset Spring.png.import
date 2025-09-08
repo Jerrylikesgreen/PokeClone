@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://vmv2idbs03wv"
-path="res://.godot/imported/Minifantasy_ForgottenPlainsTiles.png-d4b0b95eb38453ed85fe5d971a0235cf.ctex"
+uid="uid://ck7pbwe4d6tnc"
+path="res://.godot/imported/Tileset Spring.png-f77a746eeab76a1f26dc425f9e68e474.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Minifantasy_ForgottenPlainsTiles.png"
-dest_files=["res://.godot/imported/Minifantasy_ForgottenPlainsTiles.png-d4b0b95eb38453ed85fe5d971a0235cf.ctex"]
+source_file="res://Assets/Tileset Spring.png"
+dest_files=["res://.godot/imported/Tileset Spring.png-f77a746eeab76a1f26dc425f9e68e474.ctex"]
 
 [params]
 

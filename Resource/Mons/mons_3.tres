@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="MonsResource" load_steps=13 format=3 uid="uid://dnx3avfmhvmsm"]
+
+[ext_resource type="Script" uid="uid://c2yghq7c71sln" path="res://Scripts/drop_resource_script.gd" id="1_1g0v0"]
+[ext_resource type="Resource" uid="uid://bo6auh0f3rgqs" path="res://Resource/Moves/exp_small_drop_resource.tres" id="2_v4hjl"]
+[ext_resource type="Resource" uid="uid://beoxaj06m1eyk" path="res://Resource/Moves/item_small_quanity_resource.tres" id="3_cxf2u"]
+[ext_resource type="Resource" uid="uid://dxhka4jq5vl7i" path="res://Resource/Moves/small_monioes_gain.tres" id="4_cio7l"]
+[ext_resource type="Resource" uid="uid://bfqhiir0unocb" path="res://Resource/Moves/small_trainer_exp.tres" id="5_ulqx2"]
+[ext_resource type="Script" uid="uid://bls0lnmd3s4ta" path="res://Scripts/moves_resouce_script.gd" id="6_g8xre"]
+[ext_resource type="Resource" uid="uid://bdqk1favo8hm" path="res://Resource/Moves/kick_move_resource.tres" id="7_si4rq"]
+[ext_resource type="Resource" uid="uid://cd4kl0y1s0aw3" path="res://Resource/Moves/lazores_move_reosurce.tres" id="8_lyxrr"]
+[ext_resource type="Resource" uid="uid://cc4wvcgs00x00" path="res://Resource/Moves/pinga_move_reosurce.tres" id="9_w48xd"]
+[ext_resource type="Resource" uid="uid://cvy80ll7iabpr" path="res://Resource/Moves/punch_move_reosurce.tres" id="10_l8nxg"]
+[ext_resource type="Script" uid="uid://bxs8wh0jlabr0" path="res://Scripts/mons_resource_script.gd" id="11_tw3ea"]
+[ext_resource type="Texture2D" uid="uid://dadqoi2l8vlfc" path="res://icon.svg" id="12_jdhph"]
+
+[resource]
+script = ExtResource("11_tw3ea")
+mon_name = "Mons 3"
+sprite = ExtResource("12_jdhph")
+_player = false
+lvl = 1
+current_exp = 0
+max_exp = 10
+max_health = 100
+health = 100
+attack = 10
+s_attack = 10
+defence = 10
+s_defence = 10
+speed = 10
+move_pool = Array[ExtResource("6_g8xre")]([ExtResource("7_si4rq"), ExtResource("8_lyxrr"), ExtResource("9_w48xd"), ExtResource("10_l8nxg")])
+drop_pool = Array[ExtResource("1_1g0v0")]([ExtResource("2_v4hjl"), ExtResource("3_cxf2u"), ExtResource("4_cio7l"), ExtResource("5_ulqx2")])

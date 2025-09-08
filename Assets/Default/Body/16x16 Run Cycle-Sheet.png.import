@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cl4wnnocn4yoa"
-path="res://.godot/imported/BaseBodyMoving-Sheet.png-9c8141a8eca16189acedd12e04d8662c.ctex"
+uid="uid://dugij1w2jdi7u"
+path="res://.godot/imported/16x16 Run Cycle-Sheet.png-01a06379543da99f621f1ed5546a49e4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/BaseBodyMoving-Sheet.png"
-dest_files=["res://.godot/imported/BaseBodyMoving-Sheet.png-9c8141a8eca16189acedd12e04d8662c.ctex"]
+source_file="res://Assets/Default/Body/16x16 Run Cycle-Sheet.png"
+dest_files=["res://.godot/imported/16x16 Run Cycle-Sheet.png-01a06379543da99f621f1ed5546a49e4.ctex"]
 
 [params]
 

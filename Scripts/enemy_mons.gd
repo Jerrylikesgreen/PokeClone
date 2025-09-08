@@ -1,10 +1,12 @@
 # EnemyMons.gd
 class_name EnemyMons
 extends Sprite2D
+@onready var battle_manager: BattleManager = %BattleManager
 
 signal enemy_move_chosen(move: Moves)
 signal battle_over
-@export var enemy_mon_resource: MonsResource
+var enemy_mon_resource
+
 @export var fallback_move: Moves  # e.g., "Struggle" (optional)
 
 @onready var _rng := RandomNumberGenerator.new()
@@ -16,7 +18,8 @@ func _ready() -> void:
 	Events.target_ko.connect(_on_ko)
 
 func _on_ko(target:MonsResource)->void:
-	if target == enemy_mon_resource:
+	print("_on_ko")
+	if !target._player:
 		_check_if_battle_over()
 	else:
 		return
@@ -24,7 +27,7 @@ func _on_ko(target:MonsResource)->void:
 func attack() -> void:
 	var move := _pick_random_move()
 	emit_signal("enemy_move_chosen", move)  # Let BattleManager resolve it
-	print(move)
+	print(move, "Move Signal Emit")
 
 func _pick_random_move() -> Moves:
 	if enemy_mon_resource == null:
@@ -47,6 +50,7 @@ func _pick_random_move() -> Moves:
 
 
 func _check_if_battle_over()->void:
+	print("_check_if_battle_over")
 	if !_has_mons_available:
 		Events.show_dialog("Battle is over")
 		emit_signal("battle_over")

@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://clawuxk1t3w8x" path="res://Scripts/battle_manager.gd" id="2_mkoka"]
 [ext_resource type="Resource" uid="uid://dsdbty3rtb8ab" path="res://Resource/Mons/pinga_resource.tres" id="3_kgujr"]
 [ext_resource type="PackedScene" uid="uid://cfqma0hpenssn" path="res://Scenes/button.tscn" id="4_bom31"]
-[ext_resource type="Resource" uid="uid://be3t5i03ni4bc" path="res://Resource/Mons/starter_mon_1.tres" id="4_kgujr"]
+[ext_resource type="Resource" uid="uid://blgxf8omfcvvt" path="res://Resource/Mons/player_starter.tres" id="5_c0tof"]
 [ext_resource type="Script" uid="uid://bh6irafj7ye2a" path="res://Scripts/enemy_mons.gd" id="7_oy1qo"]
 [ext_resource type="Script" uid="uid://d4npjmqdyxgix" path="res://Scripts/attack_button.gd" id="7_ux0bu"]
 [ext_resource type="Script" uid="uid://b6qwecaxkoip4" path="res://Scripts/player_mons.gd" id="8_frou7"]
@@ -52,7 +52,7 @@ grow_vertical = 2
 theme = ExtResource("1_3047d")
 script = ExtResource("2_mkoka")
 enemy_mon_resource = ExtResource("3_kgujr")
-player_mon_resource = ExtResource("4_kgujr")
+player_mon_resource = ExtResource("5_c0tof")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="BattleManager"]
 layout_mode = 2
@@ -65,7 +65,8 @@ theme = SubResource("Theme_duuuk")
 
 [node name="EnemyMons" type="Sprite2D" parent="BattleManager/VBoxContainer/EnemyPanel"]
 unique_name_in_owner = true
-position = Vector2(645, 107)
+position = Vector2(516.875, 79.2363)
+scale = Vector2(0.810547, 0.867285)
 texture = ExtResource("2_duuuk")
 script = ExtResource("7_oy1qo")
 
@@ -76,10 +77,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -119.0
-offset_top = -59.0
-offset_right = -9.0
-offset_bottom = -29.0
+offset_left = -182.284
+offset_top = -61.3971
+offset_right = 54.7157
+offset_bottom = -29.3971
 grow_horizontal = 2
 grow_vertical = 0
 theme = ExtResource("1_3047d")
@@ -94,12 +95,24 @@ unique_name_in_owner = true
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -175.0
-offset_top = -97.0
-offset_right = 49.0
-offset_bottom = -68.0
+offset_left = -199.557
+offset_top = -99.4324
+offset_right = 75.4434
+offset_bottom = -67.4324
 grow_horizontal = 2
 theme = ExtResource("1_3047d")
+
+[node name="EnemyMonsName" type="Label" parent="BattleManager/VBoxContainer/EnemyPanel/EnemyMons"]
+unique_name_in_owner = true
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -84.0
+offset_top = -123.0
+offset_right = -44.0
+offset_bottom = -100.0
+grow_horizontal = 2
+text = "Name"
 
 [node name="PlayerPanel" type="Panel" parent="BattleManager/VBoxContainer"]
 layout_mode = 2
@@ -108,7 +121,8 @@ theme = SubResource("Theme_bom31")
 
 [node name="PlayerMons" type="Sprite2D" parent="BattleManager/VBoxContainer/PlayerPanel"]
 unique_name_in_owner = true
-position = Vector2(101, 129)
+position = Vector2(93.8, 80.8)
+scale = Vector2(0.83125, 0.83125)
 texture = ExtResource("2_duuuk")
 script = ExtResource("8_frou7")
 
@@ -119,10 +133,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -118.0
-offset_top = -63.0
-offset_right = -8.0
-offset_bottom = -33.0
+offset_left = -166.0
+offset_top = -53.0
+offset_right = 38.0
+offset_bottom = -21.0
 grow_horizontal = 2
 grow_vertical = 0
 theme = ExtResource("1_3047d")
@@ -139,90 +153,95 @@ unique_name_in_owner = true
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -153.0
-offset_top = -92.0
-offset_right = 32.0
-offset_bottom = -62.0
+offset_left = -156.0
+offset_top = -100.0
+offset_right = 29.0
+offset_bottom = -68.0
 grow_horizontal = 2
 theme = ExtResource("1_3047d")
 
 [node name="BattleMenu" type="Panel" parent="BattleManager/VBoxContainer/PlayerPanel"]
 unique_name_in_owner = true
 layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -571.0
-offset_top = -108.0
-offset_right = -13.0
-offset_bottom = 115.0
+anchors_preset = -1
+anchor_left = 0.405
+anchor_top = 0.035
+anchor_right = 0.989
+anchor_bottom = 1.0
+offset_left = -0.200012
+offset_top = 0.0500002
+offset_right = 0.039978
 grow_horizontal = 0
-grow_vertical = 2
+grow_vertical = 0
 theme = SubResource("Theme_0c6le")
 
-[node name="BattleMenuButtons" type="GridContainer" parent="BattleManager/VBoxContainer/PlayerPanel/BattleMenu"]
-unique_name_in_owner = true
-visible = false
+[node name="MarginContainer" type="MarginContainer" parent="BattleManager/VBoxContainer/PlayerPanel/BattleMenu"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="BattleMenuButtons" type="GridContainer" parent="BattleManager/VBoxContainer/PlayerPanel/BattleMenu/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
 columns = 2
 
-[node name="Attack" parent="BattleManager/VBoxContainer/PlayerPanel/BattleMenu/BattleMenuButtons" instance=ExtResource("4_bom31")]
+[node name="Attack" parent="BattleManager/VBoxContainer/PlayerPanel/BattleMenu/MarginContainer/BattleMenuButtons" instance=ExtResource("4_bom31")]
+unique_name_in_owner = true
 layout_mode = 2
 text = "Attack"
 script = ExtResource("7_ux0bu")
 
-[node name="Items" parent="BattleManager/VBoxContainer/PlayerPanel/BattleMenu/BattleMenuButtons" instance=ExtResource("4_bom31")]
+[node name="Items" parent="BattleManager/VBoxContainer/PlayerPanel/BattleMenu/MarginContainer/BattleMenuButtons" instance=ExtResource("4_bom31")]
+unique_name_in_owner = true
 layout_mode = 2
 text = "Items
 "
 script = ExtResource("11_c0tof")
 
-[node name="Mons" parent="BattleManager/VBoxContainer/PlayerPanel/BattleMenu/BattleMenuButtons" instance=ExtResource("4_bom31")]
+[node name="Mons" parent="BattleManager/VBoxContainer/PlayerPanel/BattleMenu/MarginContainer/BattleMenuButtons" instance=ExtResource("4_bom31")]
+unique_name_in_owner = true
 layout_mode = 2
-text = "Mons
+text = "Mons"
+text_overrun_behavior = 2
+autowrap_mode = 2
+icon_alignment = 1
 
-"
-
-[node name="Run" parent="BattleManager/VBoxContainer/PlayerPanel/BattleMenu/BattleMenuButtons" instance=ExtResource("4_bom31")]
+[node name="Run" parent="BattleManager/VBoxContainer/PlayerPanel/BattleMenu/MarginContainer/BattleMenuButtons" instance=ExtResource("4_bom31")]
+unique_name_in_owner = true
 layout_mode = 2
 text = "Run
 "
 
-[node name="AttackMenuButtons" type="GridContainer" parent="BattleManager/VBoxContainer/PlayerPanel/BattleMenu"]
+[node name="AttackMenuButtons" type="GridContainer" parent="BattleManager/VBoxContainer/PlayerPanel/BattleMenu/MarginContainer"]
 unique_name_in_owner = true
 visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 2
 columns = 2
 script = ExtResource("9_4wdh8")
 
-[node name="MoveSlot1" parent="BattleManager/VBoxContainer/PlayerPanel/BattleMenu/AttackMenuButtons" instance=ExtResource("4_bom31")]
+[node name="MoveSlot1" parent="BattleManager/VBoxContainer/PlayerPanel/BattleMenu/MarginContainer/AttackMenuButtons" instance=ExtResource("4_bom31")]
 unique_name_in_owner = true
 layout_mode = 2
 script = ExtResource("10_qny7e")
 
-[node name="MoveSlot2" parent="BattleManager/VBoxContainer/PlayerPanel/BattleMenu/AttackMenuButtons" instance=ExtResource("4_bom31")]
+[node name="MoveSlot2" parent="BattleManager/VBoxContainer/PlayerPanel/BattleMenu/MarginContainer/AttackMenuButtons" instance=ExtResource("4_bom31")]
 unique_name_in_owner = true
 layout_mode = 2
 script = ExtResource("10_qny7e")
 
-[node name="MoveSlot3" parent="BattleManager/VBoxContainer/PlayerPanel/BattleMenu/AttackMenuButtons" instance=ExtResource("4_bom31")]
+[node name="MoveSlot3" parent="BattleManager/VBoxContainer/PlayerPanel/BattleMenu/MarginContainer/AttackMenuButtons" instance=ExtResource("4_bom31")]
 unique_name_in_owner = true
 layout_mode = 2
 script = ExtResource("10_qny7e")
 
-[node name="MoveSlot4" parent="BattleManager/VBoxContainer/PlayerPanel/BattleMenu/AttackMenuButtons" instance=ExtResource("4_bom31")]
+[node name="MoveSlot4" parent="BattleManager/VBoxContainer/PlayerPanel/BattleMenu/MarginContainer/AttackMenuButtons" instance=ExtResource("4_bom31")]
 unique_name_in_owner = true
 layout_mode = 2
 script = ExtResource("10_qny7e")
@@ -245,3 +264,11 @@ scroll_following = true
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("12_oy1qo")
+
+[node name="DebugLable" type="RichTextLabel" parent="."]
+unique_name_in_owner = true
+anchors_preset = -1
+anchor_right = 0.623
+anchor_bottom = 0.5
+offset_right = 0.279968
+offset_bottom = -2.0

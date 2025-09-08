@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="MonsResource" load_steps=12 format=3 uid="uid://dsfdejimp41cs"]
+
+[ext_resource type="Script" uid="uid://c2yghq7c71sln" path="res://Scripts/drop_resource_script.gd" id="1_oa0dx"]
+[ext_resource type="Resource" uid="uid://bo6auh0f3rgqs" path="res://Resource/Moves/exp_small_drop_resource.tres" id="2_vbc5e"]
+[ext_resource type="Resource" uid="uid://beoxaj06m1eyk" path="res://Resource/Moves/item_small_quanity_resource.tres" id="3_fl6w5"]
+[ext_resource type="Resource" uid="uid://dxhka4jq5vl7i" path="res://Resource/Moves/small_monioes_gain.tres" id="4_rlsym"]
+[ext_resource type="Resource" uid="uid://bfqhiir0unocb" path="res://Resource/Moves/small_trainer_exp.tres" id="5_tstw1"]
+[ext_resource type="Script" uid="uid://bls0lnmd3s4ta" path="res://Scripts/moves_resouce_script.gd" id="6_x1hqj"]
+[ext_resource type="Resource" uid="uid://bdqk1favo8hm" path="res://Resource/Moves/kick_move_resource.tres" id="7_fqt02"]
+[ext_resource type="Resource" uid="uid://cd4kl0y1s0aw3" path="res://Resource/Moves/lazores_move_reosurce.tres" id="8_lmlcv"]
+[ext_resource type="Resource" uid="uid://cvy80ll7iabpr" path="res://Resource/Moves/punch_move_reosurce.tres" id="9_wcdbf"]
+[ext_resource type="Resource" uid="uid://cc4wvcgs00x00" path="res://Resource/Moves/pinga_move_reosurce.tres" id="10_teuin"]
+[ext_resource type="Script" uid="uid://bxs8wh0jlabr0" path="res://Scripts/mons_resource_script.gd" id="11_esp0p"]
+
+[resource]
+script = ExtResource("11_esp0p")
+mon_name = "Mons 1"
+_player = null
+lvl = 1
+current_exp = 0
+max_exp = null
+max_health = null
+health = 100
+attack = null
+s_attack = null
+defence = null
+s_defence = null
+speed = null
+move_pool = Array[ExtResource("6_x1hqj")]([ExtResource("7_fqt02"), ExtResource("8_lmlcv"), ExtResource("9_wcdbf"), ExtResource("10_teuin")])
+drop_pool = Array[ExtResource("1_oa0dx")]([ExtResource("2_vbc5e"), ExtResource("3_fl6w5"), ExtResource("4_rlsym"), ExtResource("5_tstw1")])
+metadata/_custom_type_script = "uid://bxs8wh0jlabr0"

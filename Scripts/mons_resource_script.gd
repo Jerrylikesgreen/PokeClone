@@ -4,7 +4,7 @@ class_name MonsResource extends Resource
 @export_category("--- Name / Sprite ---")
 @export var mon_name: String = ""
 @export var sprite: Texture2D
-
+@export var _player:bool = false
 @export_category("--- Level/XP ---")
 var _lvl: int = 1
 @export var lvl: int:
@@ -13,25 +13,22 @@ var _lvl: int = 1
 		_lvl = max(1, value)
 		max_exp = exp_for_level(_lvl)  # keep in sync
 
-@export var exp: int = 0
+@export var current_exp: int = 0
 @export var max_exp: int = 10  # will be synced in _init()
 
 static func exp_for_level(level: int) -> int:
 	return 10 * level  # tweak your formula here
 
 func gain_exp(amount: int) -> void:
-	exp += max(0, amount)
-	while exp >= max_exp:
-		exp -= max_exp
+	current_exp += max(0, amount)
+	while current_exp >= max_exp:
+		current_exp -= max_exp
 		lvl += 1  # setter updates max_exp
 		
 @export_category("--- HP/Stats ---")
 @export var max_health: int = 100
 var _health: int = 100
-@export var health: int:
-	get: return _health
-	set(value):
-		_health = clamp(value, 0, max_health)
+@export var health: int = 100
 
 @export var attack: int = 10
 @export var s_attack: int = 10
