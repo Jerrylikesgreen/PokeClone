@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Moves" load_steps=2 format=3 uid="uid://j6wgjgicw7x5"]
+
+[ext_resource type="Script" uid="uid://bls0lnmd3s4ta" path="res://Scripts/moves_resouce_script.gd" id="1_xyh0a"]
+
+[resource]
+script = ExtResource("1_xyh0a")
+name = "Shot"
+description = "Shooting Arrow"
+type = 0
+element = 3
+_heal = false
+power = 7
+pp = 12
+hit_chance = 1.5
+effects = Dictionary[String, Dictionary]({})
+metadata/_custom_type_script = "uid://bls0lnmd3s4ta"

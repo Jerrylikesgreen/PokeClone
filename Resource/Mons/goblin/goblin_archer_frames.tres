@@ -1,0 +1,39 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://cmire7lsvio51"]
+
+[ext_resource type="Texture2D" uid="uid://llmvmugqsktj" path="res://Assets/PNG/goblin archer/GoblinArcher.png" id="1_sle6h"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kjibc"]
+atlas = ExtResource("1_sle6h")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vc687"]
+atlas = ExtResource("1_sle6h")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jcayl"]
+atlas = ExtResource("1_sle6h")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r80vx"]
+atlas = ExtResource("1_sle6h")
+region = Rect2(48, 0, 16, 16)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kjibc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vc687")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jcayl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r80vx")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 4.0
+}]

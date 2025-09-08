@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://til0ck7hrlwh"
+path="res://.godot/imported/DavidKBD - Pink Bloom Pack - 04 - Valley of Spirits.ogg-c751f890645d5509ca27e7a73ee94172.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/OGG/DavidKBD - Pink Bloom Pack - 04 - Valley of Spirits.ogg"
+dest_files=["res://.godot/imported/DavidKBD - Pink Bloom Pack - 04 - Valley of Spirits.ogg-c751f890645d5509ca27e7a73ee94172.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

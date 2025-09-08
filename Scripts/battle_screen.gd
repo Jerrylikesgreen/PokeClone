@@ -100,6 +100,7 @@ func _damage(target:MonsResource, move_used:Moves)->void:
 	Events.damage_done(_dmg_calculation, target)
 	var _debug_text = "\n%d Points of Damage done to %s" % [_dmg_calculation, target.mon_name]
 	debug_lable.append_text(_debug_text)
+	print(target.mon_name, " used ", move_used.name)
 
 	
 
@@ -114,4 +115,6 @@ func _on_battle_start(mon:MonsResource)->void:
 	enemy_health_bar.value = mon.health
 	var text:String = str(mon.health) + mon.mon_name
 	debug_lable.append_text(text)
+	enemy_mons.set_sprite_frames(mon.sprite)
+	battle_manager.battle_start()
 	_battling = true

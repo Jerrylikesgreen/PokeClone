@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Moves" load_steps=2 format=3 uid="uid://dug7pt83p6y2h"]
+
+[ext_resource type="Script" uid="uid://bls0lnmd3s4ta" path="res://Scripts/moves_resouce_script.gd" id="1_7fvfq"]
+
+[resource]
+script = ExtResource("1_7fvfq")
+name = "Poison Arrow"
+description = "Poison Arrow - Tick dmg. "
+type = 0
+element = 4
+_heal = false
+power = 3
+pp = 10
+hit_chance = 1.3
+effects = Dictionary[String, Dictionary]({})
+metadata/_custom_type_script = "uid://bls0lnmd3s4ta"

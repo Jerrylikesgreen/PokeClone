@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Moves" load_steps=2 format=3 uid="uid://b3uygqub0bf27"]
+
+[ext_resource type="Script" uid="uid://bls0lnmd3s4ta" path="res://Scripts/moves_resouce_script.gd" id="1_rkeqs"]
+
+[resource]
+script = ExtResource("1_rkeqs")
+name = "Aim"
+description = "Draw Arrow - Buff - Short"
+type = 0
+element = 3
+_heal = false
+power = 0
+pp = 5
+hit_chance = 1.0
+effects = Dictionary[String, Dictionary]({})
+metadata/_custom_type_script = "uid://bls0lnmd3s4ta"

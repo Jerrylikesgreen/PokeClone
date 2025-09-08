@@ -7,7 +7,7 @@ signal show_dialog_signal(out_text:String)
 signal battle_started_signal(mon:MonsResource)
 signal battle_ended_signal
 signal target_healed_signal(target: MonsResource, previous: int, current: int)
-
+signal bgm_signal(track:int)
 func show_dialog(in_text:String)->void:
 	emit_signal("show_dialog_signal", in_text)
 

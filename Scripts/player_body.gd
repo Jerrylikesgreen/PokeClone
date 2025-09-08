@@ -101,5 +101,4 @@ func _update_animation(dir: Vector2) -> void:
 func _on_battle_start(_mons:MonsResource)->void:
 	if is_in_spawn_area == true:
 		is_in_spawn_area = false
-		_was_in_spawn_area = true
 	_can_move = false

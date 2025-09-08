@@ -1,6 +1,6 @@
 # EnemyMons.gd
 class_name EnemyMons
-extends Sprite2D
+extends AnimatedSprite2D
 @onready var battle_manager: BattleManager = %BattleManager
 
 signal enemy_move_chosen(move: Moves)
@@ -27,11 +27,11 @@ func _on_ko(target:MonsResource)->void:
 func attack() -> void:
 	var move := _pick_random_move()
 	emit_signal("enemy_move_chosen", move)  # Let BattleManager resolve it
-	print(move, "Move Signal Emit")
+	print(move.name, "Move Signal Emit")
 
 func _pick_random_move() -> Moves:
 	if enemy_mon_resource == null:
-		push_warning("EnemyMons: enemy_mon_resource not set.")
+		print("EnemyMons: enemy_mon_resource not set.")
 		return fallback_move
 
 	var pool: Array[Moves] = enemy_mon_resource.move_pool
@@ -45,7 +45,8 @@ func _pick_random_move() -> Moves:
 
 	if available.is_empty():
 		return fallback_move
-
+	
+	
 	return available[_rng.randi_range(0, available.size() - 1)]
 
 

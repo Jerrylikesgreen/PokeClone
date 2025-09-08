@@ -1,0 +1,1 @@
+class_name SFX extends AudioStreamPlayer2D

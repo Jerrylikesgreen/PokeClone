@@ -3,7 +3,7 @@ class_name MonsResource extends Resource
 
 @export_category("--- Name / Sprite ---")
 @export var mon_name: String = ""
-@export var sprite: Texture2D
+@export var sprite: SpriteFrames
 @export var _player:bool = false
 @export_category("--- Level/XP ---")
 var _lvl: int = 1

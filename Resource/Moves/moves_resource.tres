@@ -1,13 +1,15 @@
-[gd_resource type="Resource" script_class="MovesResource" load_steps=2 format=3 uid="uid://c6rj2u5tp5mf2"]
+[gd_resource type="Resource" script_class="Moves" load_steps=2 format=3 uid="uid://c6rj2u5tp5mf2"]
 
 [ext_resource type="Script" uid="uid://bls0lnmd3s4ta" path="res://Scripts/moves_resouce_script.gd" id="1_pqkwq"]
 
 [resource]
 script = ExtResource("1_pqkwq")
-move_name = ""
+name = ""
 description = ""
 type = 0
 element = null
+_heal = false
 power = 10
 pp = 10
 hit_chance = 1.0
+effects = Dictionary[String, Dictionary]({})

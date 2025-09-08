@@ -27,13 +27,14 @@ var _battle_ended: bool = false
 
 func _ready() -> void:
 	_player_health_setup()
-	_enemy_health_setup()
 	Events.target_health_changed_signal.connect(_on_target_health_changed)
+	player_mons.player_mon_resource = player_mon_resource
+
+func battle_start()->void:
+	_enemy_health_setup()
 	enemy_mons.enemy_mon_resource = enemy_mon_resource
 	enemy_mons.enemy_move_chosen.connect(_on_enemy_move_chosen)
-	player_mons.player_mon_resource = player_mon_resource
 	enemy_mons.battle_over.connect(_on_battle_over)
-
 
 func _on_battle_over()->void:
 	_enemy_can_attack = false
@@ -133,11 +134,39 @@ func enemy_attack_selected(move:Moves)->void:
 		return
 
 	_damage_to_player(player_mon_resource, move)
+	_apply_effect(player_mon_resource, move)
 	
 
 func _heal_enemy_mons(dmg_calculated: int)->void:
 	enemy_mon_resource.health += dmg_calculated
 	enemy_health_bar.value = enemy_mon_resource.health
+
+func _apply_effect(target: MonsResource, move_used: Moves) -> void:
+	print("Applying Effects to player due to ", move_used.name)
+
+	var move_effects: Dictionary = move_used.effects
+	if move_effects.is_empty():
+		return  # no effects
+
+	for effect_name in move_effects.keys():
+		var effect: Dictionary = move_effects[effect_name]
+		print("Apply effect:", effect_name, "with data:", effect)
+
+		# Apply each stat change
+		for stat_name in effect.keys():
+			var multiplier: float = effect[stat_name]
+
+			if target.has_property(stat_name):
+				var old_value = target.get(stat_name)
+				var new_value = old_value * multiplier
+				target.set(stat_name, new_value)
+				Events.target_health_changed_signal.emit("target_health_changed_signal", target, old_value, new_value)
+
+				print(" -", stat_name, ":", old_value, "→", new_value)
+			else:
+				push_warning("Target has no stat named '%s'" % stat_name)
+
+
 
 
 func _damage_to_player(target:MonsResource, move_used:Moves)->void:

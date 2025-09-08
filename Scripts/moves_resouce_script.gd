@@ -24,3 +24,5 @@ extends Resource
 @export var pp: int = 10
 ## Hit accuracy: 1.0 = always hits, 0.5 = 50% chance, etc.
 @export var hit_chance: float = 1.0
+
+@export var effects:Dictionary[String, Dictionary] ## Dictionary is the effects String is the name. 

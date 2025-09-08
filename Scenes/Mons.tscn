@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://bn1fcw8nkl8g6"]
+
+[ext_resource type="Script" uid="uid://b1cfk441peev4" path="res://Scenes/mons.gd" id="1_420xr"]
+[ext_resource type="Resource" uid="uid://f2a7wom8fbf0" path="res://Resource/Mons/goblin/goblin_archer_resource.tres" id="2_mht8g"]
+[ext_resource type="SpriteFrames" uid="uid://cmire7lsvio51" path="res://Resource/Mons/goblin/goblin_archer_frames.tres" id="5_kjibc"]
+
+[node name="Mons" type="Node2D"]
+script = ExtResource("1_420xr")
+resource = ExtResource("2_mht8g")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("5_kjibc")
+animation = &"Idle"
+autoplay = "Idle"

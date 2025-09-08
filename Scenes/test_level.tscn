@@ -1,15 +1,14 @@
-[gd_scene load_steps=15 format=4 uid="uid://ba0m676ihxjdg"]
+[gd_scene load_steps=14 format=4 uid="uid://ba0m676ihxjdg"]
 
 [ext_resource type="Script" uid="uid://cie0ghgp7lauc" path="res://Scripts/test_level.gd" id="1_rsyfn"]
 [ext_resource type="Script" uid="uid://c0gxqtiwklcso" path="res://Scripts/map.gd" id="2_7w7ni"]
 [ext_resource type="Script" uid="uid://bxs8wh0jlabr0" path="res://Scripts/mons_resource_script.gd" id="2_sw8nc"]
-[ext_resource type="Resource" uid="uid://dsfdejimp41cs" path="res://Resource/Mons/mons_1.tres" id="3_akkqd"]
+[ext_resource type="Resource" uid="uid://f2a7wom8fbf0" path="res://Resource/Mons/goblin/goblin_archer_resource.tres" id="3_3ihge"]
 [ext_resource type="PackedScene" uid="uid://djvlq7vitsq5d" path="res://Scenes/battle_screen.tscn" id="3_eglq2"]
-[ext_resource type="Resource" uid="uid://dxxqbqk5lqutx" path="res://Resource/Mons/mons_2.tres" id="4_8v7by"]
-[ext_resource type="Resource" uid="uid://dnx3avfmhvmsm" path="res://Resource/Mons/mons_3.tres" id="5_1rqgg"]
-[ext_resource type="Resource" uid="uid://cg2aavxru1075" path="res://Resource/Mons/mons_5.tres" id="6_mwmob"]
-[ext_resource type="Resource" uid="uid://38ojhiycqoof" path="res://Resource/Mons/mons_4.tres" id="7_so54a"]
 [ext_resource type="Texture2D" uid="uid://ck7pbwe4d6tnc" path="res://Assets/Tileset Spring.png" id="8_8v7by"]
+[ext_resource type="Script" uid="uid://do5gi1xcaortg" path="res://Scripts/bgm.gd" id="11_1rqgg"]
+[ext_resource type="Script" uid="uid://bhxm5ptd6f2d3" path="res://Scripts/sfx.gd" id="12_mwmob"]
+[ext_resource type="AudioStream" uid="uid://til0ck7hrlwh" path="res://Assets/OGG/DavidKBD - Pink Bloom Pack - 04 - Valley of Spirits.ogg" id="12_so54a"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1rqgg"]
 texture = ExtResource("8_8v7by")
@@ -500,7 +499,7 @@ sources/3 = SubResource("TileSetAtlasSource_akkqd")
 
 [node name="TestLevel" type="Node2D"]
 script = ExtResource("1_rsyfn")
-monster_pool = Array[ExtResource("2_sw8nc")]([ExtResource("3_akkqd"), ExtResource("4_8v7by"), ExtResource("5_1rqgg"), ExtResource("7_so54a"), ExtResource("6_mwmob")])
+monster_pool = Array[ExtResource("2_sw8nc")]([ExtResource("3_3ihge"), ExtResource("3_3ihge"), ExtResource("3_3ihge"), ExtResource("3_3ihge"), ExtResource("3_3ihge")])
 
 [node name="Map" type="Node2D" parent="."]
 
@@ -527,3 +526,13 @@ polygon = PackedVector2Array(30, 4, 147, 6, 145, 61, 18, 64, 19, 94, -22, 96, -2
 [node name="BattleScreen" parent="." instance=ExtResource("3_eglq2")]
 unique_name_in_owner = true
 visible = false
+
+[node name="BGM" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("12_so54a")
+volume_db = -8.914
+autoplay = true
+script = ExtResource("11_1rqgg")
+track_pool = Array[AudioStreamOggVorbis]([ExtResource("12_so54a")])
+
+[node name="SFX" type="AudioStreamPlayer2D" parent="."]
+script = ExtResource("12_mwmob")
