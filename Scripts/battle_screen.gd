@@ -87,7 +87,7 @@ func _on_move_slot_pressed(move_selected: Moves) -> void:
 
 func _heal(_target: MonsResource, move_selected: Moves)->void:
 	var _dmg:int = move_selected.power
-	var _def:int = _target.defence
+	var _def:int = _target.stats.defence
 	var _dmg_calculation:int = _def * .5 * _dmg * .2
 	Events.heal_done(_dmg_calculation, _target)
 	print(_dmg_calculation, "Healed")
@@ -95,7 +95,7 @@ func _heal(_target: MonsResource, move_selected: Moves)->void:
 
 func _damage(target:MonsResource, move_used:Moves)->void:
 	var _dmg:int = move_used.power
-	var _def:int = target.defence
+	var _def:int = target.stats.defence
 	var _dmg_calculation:int = _def * .5 * _dmg * .2
 	Events.damage_done(_dmg_calculation, target)
 	var _debug_text = "\n%d Points of Damage done to %s" % [_dmg_calculation, target.mon_name]
@@ -112,8 +112,8 @@ func _on_battle_start(mon:MonsResource)->void:
 	battle_manager.enemy_mon_resource = mon
 	enemy_mons_name.set_text(mon.mon_name)
 	battle_manager.enemy_progress_bar_timer.start()
-	enemy_health_bar.value = mon.health
-	var text:String = str(mon.health) + mon.mon_name
+	enemy_health_bar.value = mon.stats.health
+	var text:String = str(mon.stats.health) + mon.mon_name
 	debug_lable.append_text(text)
 	enemy_mons.set_sprite_frames(mon.sprite)
 	battle_manager.battle_start()

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="MonsResource" load_steps=13 format=3 uid="uid://f2a7wom8fbf0"]
+[gd_resource type="Resource" script_class="MonsResource" load_steps=14 format=3 uid="uid://f2a7wom8fbf0"]
 
 [ext_resource type="Script" uid="uid://c2yghq7c71sln" path="res://Scripts/drop_resource_script.gd" id="1_q0hlo"]
 [ext_resource type="Resource" uid="uid://bo6auh0f3rgqs" path="res://Resource/Moves/exp_small_drop_resource.tres" id="2_bpy8v"]
@@ -6,12 +6,13 @@
 [ext_resource type="Resource" uid="uid://dxhka4jq5vl7i" path="res://Resource/Moves/small_monioes_gain.tres" id="4_g3h1q"]
 [ext_resource type="Resource" uid="uid://bfqhiir0unocb" path="res://Resource/Moves/small_trainer_exp.tres" id="5_pe8m0"]
 [ext_resource type="Script" uid="uid://bls0lnmd3s4ta" path="res://Scripts/moves_resouce_script.gd" id="6_rov3b"]
-[ext_resource type="Resource" uid="uid://j6wgjgicw7x5" path="res://Resource/Mons/goblin/shot_move.tres" id="7_7resn"]
+[ext_resource type="Resource" uid="uid://j6wgjgicw7x5" path="res://Resource/Moves/shot_move.tres" id="7_bpy8v"]
 [ext_resource type="Resource" uid="uid://b3uygqub0bf27" path="res://Resource/Moves/aim.tres" id="8_5633j"]
 [ext_resource type="Resource" uid="uid://dug7pt83p6y2h" path="res://Resource/Moves/poison_arrow.tres" id="9_x6lq0"]
 [ext_resource type="Resource" uid="uid://cwwpg3ht4b6hs" path="res://Resource/Moves/concentrate_move.tres" id="10_hoe4a"]
 [ext_resource type="Script" uid="uid://bxs8wh0jlabr0" path="res://Scripts/mons_resource_script.gd" id="11_yvw1d"]
 [ext_resource type="SpriteFrames" uid="uid://cmire7lsvio51" path="res://Resource/Mons/goblin/goblin_archer_frames.tres" id="12_jtid5"]
+[ext_resource type="Resource" uid="uid://de580iwssxrf0" path="res://Resource/MonsStats/goblin_archer_stats.tres" id="13_sjb7i"]
 
 [resource]
 script = ExtResource("11_yvw1d")
@@ -21,13 +22,7 @@ _player = false
 lvl = 1
 current_exp = 0
 max_exp = 10
-max_health = 80
-health = 80
-attack = 8
-s_attack = 5
-defence = 6
-s_defence = 6
-speed = 12
-move_pool = Array[ExtResource("6_rov3b")]([ExtResource("7_7resn"), ExtResource("8_5633j"), ExtResource("9_x6lq0"), ExtResource("10_hoe4a")])
+stats = ExtResource("13_sjb7i")
+move_pool = Array[ExtResource("6_rov3b")]([ExtResource("7_bpy8v"), ExtResource("8_5633j"), ExtResource("9_x6lq0"), ExtResource("10_hoe4a")])
 drop_pool = Array[ExtResource("1_q0hlo")]([ExtResource("2_bpy8v"), ExtResource("3_sjb7i"), ExtResource("4_g3h1q"), ExtResource("5_pe8m0")])
 metadata/_custom_type_script = "uid://bxs8wh0jlabr0"

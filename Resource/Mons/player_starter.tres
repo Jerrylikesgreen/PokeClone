@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="MonsResource" load_steps=13 format=3 uid="uid://blgxf8omfcvvt"]
+[gd_resource type="Resource" script_class="MonsResource" load_steps=14 format=3 uid="uid://blgxf8omfcvvt"]
 
 [ext_resource type="Script" uid="uid://c2yghq7c71sln" path="res://Scripts/drop_resource_script.gd" id="1_nj1sy"]
 [ext_resource type="Resource" uid="uid://bo6auh0f3rgqs" path="res://Resource/Moves/exp_small_drop_resource.tres" id="2_s6j4k"]
@@ -12,6 +12,7 @@
 [ext_resource type="Resource" uid="uid://cc4wvcgs00x00" path="res://Resource/Moves/pinga_move_reosurce.tres" id="10_8v8kg"]
 [ext_resource type="Script" uid="uid://bxs8wh0jlabr0" path="res://Scripts/mons_resource_script.gd" id="11_lykt0"]
 [ext_resource type="Texture2D" uid="uid://dadqoi2l8vlfc" path="res://icon.svg" id="12_2lvdd"]
+[ext_resource type="Resource" uid="uid://duyb8dpgbvucs" path="res://Resource/MonsStats/base_stats_resource.tres" id="13_s6j4k"]
 
 [resource]
 script = ExtResource("11_lykt0")
@@ -21,12 +22,6 @@ _player = true
 lvl = 1
 current_exp = 0
 max_exp = 10
-max_health = 100
-health = 100
-attack = 10
-s_attack = 10
-defence = 10
-s_defence = 10
-speed = 10
+stats = ExtResource("13_s6j4k")
 move_pool = Array[ExtResource("6_xa4fw")]([ExtResource("7_bsknb"), ExtResource("8_7ax4r"), ExtResource("9_3cpo8"), ExtResource("10_8v8kg")])
 drop_pool = Array[ExtResource("1_nj1sy")]([ExtResource("2_s6j4k"), ExtResource("3_uv0jk"), ExtResource("4_x1o4n"), ExtResource("5_qevhp")])

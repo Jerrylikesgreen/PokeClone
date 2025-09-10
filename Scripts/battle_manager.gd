@@ -56,7 +56,7 @@ func _on_target_health_changed(target: MonsResource, previous: int, current: int
 		print("Target is player, skipped")
 		return
 	enemy_health_bar.min_value = 0
-	enemy_health_bar.max_value = target.max_health  
+	enemy_health_bar.max_value = target.stats.max_health  
 	enemy_health_bar.value = clampf(current, enemy_health_bar.min_value, enemy_health_bar.max_value)
 	var new_text = "HP change: %s %d → %d | bar=%d/%d" % [
 	target.mon_name, previous, current,
@@ -69,15 +69,15 @@ func _on_target_health_changed(target: MonsResource, previous: int, current: int
 
 func _player_health_setup()->void:
 	player_progress_bar_timer.timeout.connect(_on_player_turn_tick)
-	player_progress_bar.value = player_mon_resource.speed * 1.5
-	player_health_bar.max_value = player_mon_resource.max_health
-	player_health_bar.value = player_mon_resource.health
+	player_progress_bar.value = player_mon_resource.stats.speed * 1.5
+	player_health_bar.max_value = player_mon_resource.stats.max_health
+	player_health_bar.value = player_mon_resource.stats.health
 
 func _enemy_health_setup()->void:
 	enemy_progress_bar_timer.timeout.connect(_on_enemy_turn_tick)
-	enemy_progress_bar.value = enemy_mon_resource.speed * 1.5
-	enemy_health_bar.max_value = enemy_mon_resource.health
-	enemy_health_bar.value = enemy_mon_resource.health
+	enemy_progress_bar.value = enemy_mon_resource.stats.speed * 1.5
+	enemy_health_bar.max_value = enemy_mon_resource.stats.health
+	enemy_health_bar.value = enemy_mon_resource.stats.health
 	
 
 func _on_enemy_turn_tick() -> void:
@@ -89,7 +89,7 @@ func _on_enemy_turn_tick() -> void:
 	enemy_progress_bar.step = 0.0
 
 	enemy_progress_bar.value = clamp(
-		enemy_progress_bar.value + enemy_mon_resource.speed * 1.5,
+		enemy_progress_bar.value + enemy_mon_resource.stats.speed * 1.5,
 		enemy_progress_bar.min_value,
 		maxv
 	)
@@ -110,7 +110,7 @@ func _on_player_turn_tick() -> void:
 	player_progress_bar.step = 0.0
 
 	player_progress_bar.value = clamp(
-		player_progress_bar.value + player_mon_resource.speed * 1.5,
+		player_progress_bar.value + player_mon_resource.stats.speed * 1.5,
 		player_progress_bar.min_value,
 		maxv
 	)
@@ -128,7 +128,7 @@ func enemy_attack_selected(move:Moves)->void:
 	_enemy_can_attack = false
 	enemy_progress_bar.value = 0
 	var dmg_calculated:int = move.power 
-	battle_screen.debug_lable.append_text(" \n Enemy Attacked with " + str(move.power) + " and player has " + str(player_mon_resource.health) )
+	battle_screen.debug_lable.append_text(" \n Enemy Attacked with " + str(move.power) + " and player has " + str(player_mon_resource.stats.health) )
 	if move._heal:
 		_heal_enemy_mons(dmg_calculated)
 		return
@@ -139,7 +139,7 @@ func enemy_attack_selected(move:Moves)->void:
 
 func _heal_enemy_mons(dmg_calculated: int)->void:
 	enemy_mon_resource.health += dmg_calculated
-	enemy_health_bar.value = enemy_mon_resource.health
+	enemy_health_bar.value = enemy_mon_resource.stats.health
 
 func _apply_effect(target: MonsResource, move_used: Moves) -> void:
 	print("Applying Effects to player due to ", move_used.name)
@@ -172,12 +172,12 @@ func _apply_effect(target: MonsResource, move_used: Moves) -> void:
 func _damage_to_player(target:MonsResource, move_used:Moves)->void:
 	print("_damage_to_player")
 	var _dmg:int = move_used.power
-	var _def:int = target.defence
+	var _def:int = target.stats.defence
 	var _dmg_calculation:int = _def * .5 * _dmg * .2
 	Events.damage_done(_dmg_calculation, target)
-	player_health_bar.value = target.health
+	player_health_bar.value = target.stats.health
 	print("Damage done to player ", _dmg_calculation)
-	print("player health ", target.health)
+	print("player health ", target.stats.health)
 
 
 func player_attack_selected(move_selected:Moves)->void:

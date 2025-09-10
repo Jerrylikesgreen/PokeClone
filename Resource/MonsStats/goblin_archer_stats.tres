@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Stats" load_steps=2 format=3 uid="uid://de580iwssxrf0"]
+
+[ext_resource type="Script" uid="uid://yst0ypbjdyrw" path="res://Scripts/mons_stats_resource_script.gd" id="1_3hfxt"]
+
+[resource]
+script = ExtResource("1_3hfxt")
+max_health = 100
+health = 100
+attack = 10
+s_attack = 10
+defence = 10
+s_defence = 10
+speed = 10
+metadata/_custom_type_script = "uid://yst0ypbjdyrw"

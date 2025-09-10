@@ -18,15 +18,15 @@ func damage_done(dmg: int, target: MonsResource) -> bool:
 		print("no target")
 		return false
 
-	var prev := int(target.health)
+	var prev := int(target.stats.health)
 	if prev <= 0:
-		print("Returned ", target.health)
+		print("Returned ", target.stats.health)
 		return true                   # already KO'd; nothing to do
 
 	var actual = min(prev, dmg)     # cap damage to remaining HP
 	var curr = prev - actual        # never below 0
 
-	target.health = curr
+	target.stats.health = curr
 	emit_signal("target_health_changed_signal", target, prev, curr)
 	print("target_health_changed" + str(target))
 
@@ -40,10 +40,10 @@ func damage_done(dmg: int, target: MonsResource) -> bool:
 
 func heal_done(heal: int, target: MonsResource) -> void:
 
-	var prev := int(target.health)
+	var prev := int(target.stats.health)
 	var curr = prev + heal
 
-	target.health = curr
+	target.stats.health = curr
 	emit_signal("target_healed_signal", target, prev, curr)
 	print("Heal Signal Sent from Events")
 

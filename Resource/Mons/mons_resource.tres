@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="MonsResource" load_steps=7 format=3 uid="uid://cb41n2jol41qn"]
+[gd_resource type="Resource" script_class="MonsResource" load_steps=9 format=3 uid="uid://cb41n2jol41qn"]
 
 [ext_resource type="Script" uid="uid://c2yghq7c71sln" path="res://Scripts/drop_resource_script.gd" id="1_psa62"]
 [ext_resource type="Resource" uid="uid://bo6auh0f3rgqs" path="res://Resource/Moves/exp_small_drop_resource.tres" id="2_5yh0k"]
@@ -6,20 +6,16 @@
 [ext_resource type="Resource" uid="uid://beoxaj06m1eyk" path="res://Resource/Moves/item_small_quanity_resource.tres" id="3_6885j"]
 [ext_resource type="Resource" uid="uid://bfqhiir0unocb" path="res://Resource/Moves/small_trainer_exp.tres" id="4_jbndk"]
 [ext_resource type="Resource" uid="uid://dxhka4jq5vl7i" path="res://Resource/Moves/small_monioes_gain.tres" id="5_nguwv"]
+[ext_resource type="Script" uid="uid://bls0lnmd3s4ta" path="res://Scripts/moves_resouce_script.gd" id="6_nguwv"]
+[ext_resource type="Resource" uid="uid://duyb8dpgbvucs" path="res://Resource/MonsStats/base_stats_resource.tres" id="8_kujfk"]
 
 [resource]
 script = ExtResource("2_psa62")
-mon_name = null
-_player = null
-lvl = null
+mon_name = ""
+_player = false
+lvl = 0
 current_exp = 0
-max_exp = null
-max_health = null
-health = 100
-attack = null
-s_attack = null
-defence = null
-s_defence = null
-speed = null
-move_pool = null
+max_exp = 10
+stats = ExtResource("8_kujfk")
+move_pool = Array[ExtResource("6_nguwv")]([])
 drop_pool = Array[ExtResource("1_psa62")]([ExtResource("2_5yh0k"), ExtResource("3_6885j"), ExtResource("4_jbndk"), ExtResource("5_nguwv")])
