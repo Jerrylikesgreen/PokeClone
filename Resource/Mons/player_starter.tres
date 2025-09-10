@@ -1,10 +1,11 @@
-[gd_resource type="Resource" script_class="MonsResource" load_steps=14 format=3 uid="uid://blgxf8omfcvvt"]
+[gd_resource type="Resource" script_class="MonsResource" load_steps=15 format=3 uid="uid://blgxf8omfcvvt"]
 
 [ext_resource type="Script" uid="uid://c2yghq7c71sln" path="res://Scripts/drop_resource_script.gd" id="1_nj1sy"]
-[ext_resource type="Resource" uid="uid://bo6auh0f3rgqs" path="res://Resource/Moves/exp_small_drop_resource.tres" id="2_s6j4k"]
-[ext_resource type="Resource" uid="uid://beoxaj06m1eyk" path="res://Resource/Moves/item_small_quanity_resource.tres" id="3_uv0jk"]
-[ext_resource type="Resource" uid="uid://dxhka4jq5vl7i" path="res://Resource/Moves/small_monioes_gain.tres" id="4_x1o4n"]
-[ext_resource type="Resource" uid="uid://bfqhiir0unocb" path="res://Resource/Moves/small_trainer_exp.tres" id="5_qevhp"]
+[ext_resource type="Script" uid="uid://dpwvupf0f4mcb" path="res://Scripts/effects_resource_script.gd" id="1_uv0jk"]
+[ext_resource type="Resource" uid="uid://bo6auh0f3rgqs" path="res://Resource/Items/exp_small_drop_resource.tres" id="2_s6j4k"]
+[ext_resource type="Resource" uid="uid://beoxaj06m1eyk" path="res://Resource/Items/item_small_quanity_resource.tres" id="3_uv0jk"]
+[ext_resource type="Resource" uid="uid://dxhka4jq5vl7i" path="res://Resource/Items/small_monioes_gain.tres" id="4_x1o4n"]
+[ext_resource type="Resource" uid="uid://bfqhiir0unocb" path="res://Resource/Items/small_trainer_exp.tres" id="5_qevhp"]
 [ext_resource type="Script" uid="uid://bls0lnmd3s4ta" path="res://Scripts/moves_resouce_script.gd" id="6_xa4fw"]
 [ext_resource type="Resource" uid="uid://brx2u1kqa0qsd" path="res://Resource/Moves/player_super.tres" id="7_bsknb"]
 [ext_resource type="Resource" uid="uid://cvy80ll7iabpr" path="res://Resource/Moves/punch_move_reosurce.tres" id="8_7ax4r"]
@@ -23,5 +24,6 @@ lvl = 1
 current_exp = 0
 max_exp = 10
 stats = ExtResource("13_s6j4k")
+current_status = Array[ExtResource("1_uv0jk")]([])
 move_pool = Array[ExtResource("6_xa4fw")]([ExtResource("7_bsknb"), ExtResource("8_7ax4r"), ExtResource("9_3cpo8"), ExtResource("10_8v8kg")])
 drop_pool = Array[ExtResource("1_nj1sy")]([ExtResource("2_s6j4k"), ExtResource("3_uv0jk"), ExtResource("4_x1o4n"), ExtResource("5_qevhp")])

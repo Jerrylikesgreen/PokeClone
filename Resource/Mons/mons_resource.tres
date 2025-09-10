@@ -1,11 +1,11 @@
 [gd_resource type="Resource" script_class="MonsResource" load_steps=9 format=3 uid="uid://cb41n2jol41qn"]
 
 [ext_resource type="Script" uid="uid://c2yghq7c71sln" path="res://Scripts/drop_resource_script.gd" id="1_psa62"]
-[ext_resource type="Resource" uid="uid://bo6auh0f3rgqs" path="res://Resource/Moves/exp_small_drop_resource.tres" id="2_5yh0k"]
+[ext_resource type="Resource" uid="uid://bo6auh0f3rgqs" path="res://Resource/Items/exp_small_drop_resource.tres" id="2_5yh0k"]
 [ext_resource type="Script" uid="uid://bxs8wh0jlabr0" path="res://Scripts/mons_resource_script.gd" id="2_psa62"]
-[ext_resource type="Resource" uid="uid://beoxaj06m1eyk" path="res://Resource/Moves/item_small_quanity_resource.tres" id="3_6885j"]
-[ext_resource type="Resource" uid="uid://bfqhiir0unocb" path="res://Resource/Moves/small_trainer_exp.tres" id="4_jbndk"]
-[ext_resource type="Resource" uid="uid://dxhka4jq5vl7i" path="res://Resource/Moves/small_monioes_gain.tres" id="5_nguwv"]
+[ext_resource type="Resource" uid="uid://beoxaj06m1eyk" path="res://Resource/Items/item_small_quanity_resource.tres" id="3_6885j"]
+[ext_resource type="Resource" uid="uid://bfqhiir0unocb" path="res://Resource/Items/small_trainer_exp.tres" id="4_jbndk"]
+[ext_resource type="Resource" uid="uid://dxhka4jq5vl7i" path="res://Resource/Items/small_monioes_gain.tres" id="5_nguwv"]
 [ext_resource type="Script" uid="uid://bls0lnmd3s4ta" path="res://Scripts/moves_resouce_script.gd" id="6_nguwv"]
 [ext_resource type="Resource" uid="uid://duyb8dpgbvucs" path="res://Resource/MonsStats/base_stats_resource.tres" id="8_kujfk"]
 

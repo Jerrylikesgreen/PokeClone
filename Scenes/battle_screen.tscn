@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://djvlq7vitsq5d"]
+[gd_scene load_steps=19 format=3 uid="uid://djvlq7vitsq5d"]
 
 [ext_resource type="Theme" uid="uid://bro4f0agqms1f" path="res://Resource/Themes/BattleScreen.tres" id="1_3047d"]
 [ext_resource type="Script" uid="uid://bi7ih57unyef8" path="res://Scripts/battle_screen.gd" id="1_yqk0y"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" uid="uid://d4npjmqdyxgix" path="res://Scripts/attack_button.gd" id="7_ux0bu"]
 [ext_resource type="Script" uid="uid://b6qwecaxkoip4" path="res://Scripts/player_mons.gd" id="8_frou7"]
 [ext_resource type="Script" uid="uid://bypf6rfqdnim0" path="res://Scripts/attack_menu_buttons.gd" id="9_4wdh8"]
+[ext_resource type="LabelSettings" uid="uid://dpct76n3icf7k" path="res://Resource/Themes/dialog_label.tres" id="9_6inyb"]
 [ext_resource type="Script" uid="uid://cf3131khlp1qo" path="res://Scripts/move_slot_button.gd" id="10_qny7e"]
 [ext_resource type="Script" uid="uid://dwmpep1dav81y" path="res://Scripts/items_button.gd" id="11_c0tof"]
 [ext_resource type="Script" uid="uid://c32x2dfxy248r" path="res://Scripts/dialog_text.gd" id="12_oy1qo"]
@@ -105,8 +106,8 @@ theme = ExtResource("1_3047d")
 
 [node name="PlayerMons" type="Sprite2D" parent="BattleManager/VBoxContainer/PlayerPanel"]
 unique_name_in_owner = true
-position = Vector2(92.3, 82.3)
-scale = Vector2(0.807813, 0.807813)
+position = Vector2(84.65, 76.65)
+scale = Vector2(0.739844, 0.739844)
 texture = ExtResource("2_duuuk")
 script = ExtResource("8_frou7")
 
@@ -117,10 +118,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -166.0
-offset_top = -53.0
-offset_right = 38.0
-offset_bottom = -21.0
+offset_left = -164.642
+offset_top = -61.5242
+offset_right = 39.3579
+offset_bottom = -29.5242
 grow_horizontal = 2
 grow_vertical = 0
 theme = ExtResource("1_3047d")
@@ -262,3 +263,19 @@ anchor_right = 0.623
 anchor_bottom = 0.5
 offset_right = 0.279968
 offset_bottom = -2.0
+
+[node name="Status" type="Label" parent="."]
+unique_name_in_owner = true
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -315.0
+offset_top = -28.0
+offset_right = -158.0
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Status: "
+label_settings = ExtResource("9_6inyb")

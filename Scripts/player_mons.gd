@@ -77,6 +77,6 @@ func _grant_drop(drop: DropResource, _defeated: MonsResource) -> Dictionary:
 
 func _on_health_changed(target: MonsResource, previous: int, current: int)->void:
 	print("Hp Changed")
-	if target == player_mon_resource:
-		player_health_bar.value = player_mon_resource.stats.health
-		print("player HP Changed ", player_health_bar.value )
+#	if target == player_mon_resource:
+#		player_health_bar.value = player_mon_resource.stats.health
+#		print("player HP Changed ", player_health_bar.value )

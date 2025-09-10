@@ -26,4 +26,4 @@ extends Resource
 @export var hit_chance: float = 1.0
 
  ##  String = Name of the effect ; Dicti = [String:Name of Stat , [float:multiplyer]]
-@export var effects:Dictionary[String, Dictionary]
+@export var effects:Array[Effects]

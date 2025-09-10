@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Effects" load_steps=2 format=3 uid="uid://bu67vktfrahgw"]
+
+[ext_resource type="Script" uid="uid://dpwvupf0f4mcb" path="res://Scripts/effects_resource_script.gd" id="1_mglsi"]
+
+[resource]
+script = ExtResource("1_mglsi")
+effect_name = "Lesser Poison"
+multiplier = 0.9
+target_stat = 0
+duration = 3
+metadata/_custom_type_script = "uid://dpwvupf0f4mcb"

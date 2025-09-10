@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Effects" load_steps=2 format=3 uid="uid://bo220fj5hqy4v"]
+
+[ext_resource type="Script" uid="uid://dpwvupf0f4mcb" path="res://Scripts/effects_resource_script.gd" id="1_5unxq"]
+
+[resource]
+script = ExtResource("1_5unxq")
+effect_name = "Double Crit"
+multiplier = 2.0
+target_stat = 7
+metadata/_custom_type_script = "uid://dpwvupf0f4mcb"

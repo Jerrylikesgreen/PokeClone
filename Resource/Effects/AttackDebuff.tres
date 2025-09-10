@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Effects" load_steps=2 format=3 uid="uid://410xjsthyna8"]
+
+[ext_resource type="Script" uid="uid://dpwvupf0f4mcb" path="res://Scripts/effects_resource_script.gd" id="1_28lfb"]
+
+[resource]
+script = ExtResource("1_28lfb")
+effect_name = "Attack Debuff"
+multiplier = 1.5
+target_stat = 1
+metadata/_custom_type_script = "uid://dpwvupf0f4mcb"

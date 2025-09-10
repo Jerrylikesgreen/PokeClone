@@ -1,6 +1,10 @@
 class_name MonsResource
 extends Resource
 
+signal applied(target)
+
+
+
 @export_category("--- Name / Sprite ---")
 @export var mon_name: String = ""
 @export var sprite: SpriteFrames
@@ -28,7 +32,7 @@ func gain_exp(amount: int) -> void:
 
 @export_category("--- HP / Stats ---")
 @export var stats: Stats
-
+@export var current_status: Array[Effects]
 
 @export_category("--- Move Pool ---")
 @export var move_pool: Array[Moves] = []
@@ -38,3 +42,9 @@ func gain_exp(amount: int) -> void:
 
 func _init() -> void:
 	max_exp = exp_for_level(_lvl)
+
+
+func apply_to(monster, effect:Effects):
+	var effect_name:String = effect.effect_name
+	print("Applying", effect_name, "to", monster.mon_name)
+	emit_signal("applied", monster)

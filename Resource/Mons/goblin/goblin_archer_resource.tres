@@ -1,10 +1,11 @@
-[gd_resource type="Resource" script_class="MonsResource" load_steps=14 format=3 uid="uid://f2a7wom8fbf0"]
+[gd_resource type="Resource" script_class="MonsResource" load_steps=15 format=3 uid="uid://f2a7wom8fbf0"]
 
 [ext_resource type="Script" uid="uid://c2yghq7c71sln" path="res://Scripts/drop_resource_script.gd" id="1_q0hlo"]
-[ext_resource type="Resource" uid="uid://bo6auh0f3rgqs" path="res://Resource/Moves/exp_small_drop_resource.tres" id="2_bpy8v"]
-[ext_resource type="Resource" uid="uid://beoxaj06m1eyk" path="res://Resource/Moves/item_small_quanity_resource.tres" id="3_sjb7i"]
-[ext_resource type="Resource" uid="uid://dxhka4jq5vl7i" path="res://Resource/Moves/small_monioes_gain.tres" id="4_g3h1q"]
-[ext_resource type="Resource" uid="uid://bfqhiir0unocb" path="res://Resource/Moves/small_trainer_exp.tres" id="5_pe8m0"]
+[ext_resource type="Script" uid="uid://dpwvupf0f4mcb" path="res://Scripts/effects_resource_script.gd" id="1_sjb7i"]
+[ext_resource type="Resource" uid="uid://bo6auh0f3rgqs" path="res://Resource/Items/exp_small_drop_resource.tres" id="3_sjb7i"]
+[ext_resource type="Resource" uid="uid://beoxaj06m1eyk" path="res://Resource/Items/item_small_quanity_resource.tres" id="4_g3h1q"]
+[ext_resource type="Resource" uid="uid://dxhka4jq5vl7i" path="res://Resource/Items/small_monioes_gain.tres" id="5_pe8m0"]
+[ext_resource type="Resource" uid="uid://bfqhiir0unocb" path="res://Resource/Items/small_trainer_exp.tres" id="6_7resn"]
 [ext_resource type="Script" uid="uid://bls0lnmd3s4ta" path="res://Scripts/moves_resouce_script.gd" id="6_rov3b"]
 [ext_resource type="Resource" uid="uid://j6wgjgicw7x5" path="res://Resource/Moves/shot_move.tres" id="7_bpy8v"]
 [ext_resource type="Resource" uid="uid://b3uygqub0bf27" path="res://Resource/Moves/aim.tres" id="8_5633j"]
@@ -23,6 +24,7 @@ lvl = 1
 current_exp = 0
 max_exp = 10
 stats = ExtResource("13_sjb7i")
+current_status = Array[ExtResource("1_sjb7i")]([])
 move_pool = Array[ExtResource("6_rov3b")]([ExtResource("7_bpy8v"), ExtResource("8_5633j"), ExtResource("9_x6lq0"), ExtResource("10_hoe4a")])
-drop_pool = Array[ExtResource("1_q0hlo")]([ExtResource("2_bpy8v"), ExtResource("3_sjb7i"), ExtResource("4_g3h1q"), ExtResource("5_pe8m0")])
+drop_pool = Array[ExtResource("1_q0hlo")]([ExtResource("3_sjb7i"), ExtResource("4_g3h1q"), ExtResource("5_pe8m0"), ExtResource("6_7resn")])
 metadata/_custom_type_script = "uid://bxs8wh0jlabr0"

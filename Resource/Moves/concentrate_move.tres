@@ -1,6 +1,8 @@
-[gd_resource type="Resource" script_class="Moves" load_steps=2 format=3 uid="uid://cwwpg3ht4b6hs"]
+[gd_resource type="Resource" script_class="Moves" load_steps=4 format=3 uid="uid://cwwpg3ht4b6hs"]
 
 [ext_resource type="Script" uid="uid://bls0lnmd3s4ta" path="res://Scripts/moves_resouce_script.gd" id="1_b5jwe"]
+[ext_resource type="Script" uid="uid://dpwvupf0f4mcb" path="res://Scripts/effects_resource_script.gd" id="1_rnavy"]
+[ext_resource type="Resource" uid="uid://bu67vktfrahgw" path="res://Resource/Effects/lesser_poison.tres" id="2_ubdrl"]
 
 [resource]
 script = ExtResource("1_b5jwe")
@@ -12,5 +14,5 @@ _heal = false
 power = 0
 pp = 5
 hit_chance = 1.0
-effects = Dictionary[String, Dictionary]({})
+effects = Array[ExtResource("1_rnavy")]([ExtResource("2_ubdrl")])
 metadata/_custom_type_script = "uid://bls0lnmd3s4ta"

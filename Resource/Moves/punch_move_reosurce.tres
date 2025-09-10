@@ -1,6 +1,8 @@
-[gd_resource type="Resource" script_class="Moves" load_steps=2 format=3 uid="uid://cvy80ll7iabpr"]
+[gd_resource type="Resource" script_class="Moves" load_steps=4 format=3 uid="uid://cvy80ll7iabpr"]
 
+[ext_resource type="Script" uid="uid://dpwvupf0f4mcb" path="res://Scripts/effects_resource_script.gd" id="1_ff065"]
 [ext_resource type="Script" uid="uid://bls0lnmd3s4ta" path="res://Scripts/moves_resouce_script.gd" id="1_h50io"]
+[ext_resource type="Resource" uid="uid://410xjsthyna8" path="res://Resource/Effects/AttackDebuff.tres" id="2_2nluy"]
 
 [resource]
 script = ExtResource("1_h50io")
@@ -8,7 +10,9 @@ name = "Punch"
 description = "Punch - pow pow "
 type = 0
 element = 0
+_heal = false
 power = 10
 pp = 10
 hit_chance = 1.0
+effects = Array[ExtResource("1_ff065")]([ExtResource("2_2nluy")])
 metadata/_custom_type_script = "uid://bls0lnmd3s4ta"

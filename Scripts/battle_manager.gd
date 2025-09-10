@@ -17,6 +17,10 @@ signal _battle_ended_signal
 @onready var battle_menu_buttons: GridContainer = %BattleMenuButtons
 @onready var enemy_mons: EnemyMons = %EnemyMons
 @onready var player_mons: PlayerMons = %PlayerMons
+@onready var status: Label = %Status
+
+@export var player_status_tracker: Array[Effects]
+@export var enemy_status_tracker: Array[Effects]
 
 var enemy_mons_org: EnemyMons
 var _player_attack_selected:Moves
@@ -59,11 +63,12 @@ func _on_target_health_changed(target: MonsResource, previous: int, current: int
 	enemy_health_bar.max_value = target.stats.max_health  
 	enemy_health_bar.value = clampf(current, enemy_health_bar.min_value, enemy_health_bar.max_value)
 	var new_text = "HP change: %s %d → %d | bar=%d/%d" % [
+	
 	target.mon_name, previous, current,
 	int(enemy_health_bar.value), int(enemy_health_bar.max_value)
 ]
 
-	battle_screen.debug_lable.set_text(new_text)
+	
 	
 	
 
@@ -99,6 +104,64 @@ func _on_enemy_turn_tick() -> void:
 		_enemy_can_attack = true
 		enemy_mons.attack()
 
+func _check_player_status_effect() -> void:
+	var current_player_status_conditions: Array = player_mons.current_status
+	if current_player_status_conditions.is_empty():
+		return
+
+	# Iterate backwards so we can safely remove expired statuses
+	for i in range(current_player_status_conditions.size() - 1, -1, -1):
+		var condition: Effects = current_player_status_conditions[i]
+
+		if condition.duration > 0:
+			condition.duration -= 1
+			
+			# Apply the status effect tick here
+			_apply_status_tick(player_mon_resource, condition)
+
+			# Remove expired effect
+			if condition.duration <= 0:
+				current_player_status_conditions.remove_at(i)
+		else:
+			# Already expired, remove it
+			current_player_status_conditions.remove_at(i)
+		_apply_status_tick(player_mon_resource, condition)
+
+func _apply_status_tick(target: MonsResource, condition: Effects) -> void:
+	# Only handling HP ticks here; extend for others as needed
+	if condition.target_stat != Effects.Stat.HEALTH:
+		return
+
+	# Block player damage at the source
+	if target._player:
+		print("Player tick ignored")
+		return
+
+	var stats := target.stats
+	var max_hp := float(stats.get("max_health"))
+	var cur_hp := float(stats.get("health"))
+
+	# Positive multiplier -> damage (e.g., 0.05 = 5% max HP)
+	# Negative multiplier -> heal (e.g., -0.05 = +5% max HP)
+	var amount := max_hp * condition.multiplier
+	var new_hp := clampf(cur_hp - amount, 0.0, max_hp)
+
+	# Write & signal once
+	if not is_equal_approx(new_hp, cur_hp):
+		stats.set("health", new_hp)
+		Events.target_health_changed_signal.emit(target, cur_hp, new_hp)
+
+	# Optional: if this is only for UI/logs, keep it; if it also applies damage, REMOVE it.
+	if Events.has_signal("damage_done"):
+		Events.damage_done(amount, target)
+
+	# Flavor text (rounded for readability)
+	var shown := int(round(absf(amount)))
+	if amount > 0.0:
+		Events.show_dialog("%s takes %d damage from %s." % [target.mon_name, shown, condition.effect_name])
+	elif amount < 0.0:
+		Events.show_dialog("%s heals %d from %s." % [target.mon_name, shown, condition.effect_name])
+
 
 
 func _on_player_turn_tick() -> void:
@@ -116,7 +179,6 @@ func _on_player_turn_tick() -> void:
 	)
 
 	if player_progress_bar.value >= maxv:
-		print("Player can attack")
 		_player_can_attack = true
 		battle_menu_buttons.visible = true
 
@@ -142,29 +204,68 @@ func _heal_enemy_mons(dmg_calculated: int)->void:
 	enemy_health_bar.value = enemy_mon_resource.stats.health
 
 func _apply_effect(target: MonsResource, move_used: Moves) -> void:
-	print("Applying Effects to player due to ", move_used.name)
-
-	var move_effects: Dictionary = move_used.effects
+	print("Applying effects to ", target.mon_name, " due to ", move_used.name)
+	print("Current statuses:", str(target.current_status))
+	Events.show_dialog("Applying effects to " + target.mon_name + " due to " + move_used.name)
+	var move_effects: Array[Effects] = move_used.effects
 	if move_effects.is_empty():
-		return  # no effects
+		return
 
-	for effect_name in move_effects.keys():
-		var effect: Dictionary = move_effects[effect_name]
-		print("Apply effect:", effect_name, "with data:", effect)
+	for effect: Effects in move_effects:
+		print("Effect in move:", effect, "Name:", effect.effect_name)
 
-		# Apply each stat change
-		for stat_name in effect.keys():
-			var multiplier: float = effect[stat_name]
+		if _has_status_by_name(target, effect.effect_name) != -1:
+			print("Effect already applied: ", effect.effect_name)
+			continue
 
-			if target.has_property(stat_name):
-				var old_value = target.get(stat_name)
-				var new_value = old_value * multiplier
-				target.set(stat_name, new_value)
-				Events.target_health_changed_signal.emit("target_health_changed_signal", target, old_value, new_value)
+		var stat_name: StringName = effect._get_stat_name(effect.target_stat)
+		if stat_name == "":
+			push_warning("Effect '%s' maps to empty stat name." % effect.effect_name)
+			continue
 
-				print(" -", stat_name, ":", old_value, "→", new_value)
-			else:
-				push_warning("Target has no stat named '%s'" % stat_name)
+		var stats_res: Resource = target.stats
+		if not stats_res.has_property(stat_name):
+			push_warning("Target has no stat named '%s'" % stat_name)
+			continue
+
+		var old_val := float(stats_res.get(stat_name))
+		var new_val := old_val * effect.multiplier
+		stats_res.set(stat_name, new_val)
+
+		# Deep copy so duration/applied data are per-target
+		var effect_instance: Effects = effect.duplicate(true)
+		target.current_status.append(effect_instance)
+
+		# UI: rebuild from source of truth (current_status)
+		if is_instance_valid(status):
+			status.text = _rebuild_status_label_text(target)
+
+		# Emit accurate signals
+		if String(stat_name) == "health":
+			Events.target_health_changed_signal.emit(target, old_val, new_val)
+			
+		elif Events.has_signal("target_stat_changed_signal"):
+			Events.target_stat_changed_signal.emit(target, String(stat_name), old_val, new_val)
+
+		print(" -", stat_name, ":", old_val, "→", new_val)
+		_apply_status_tick(target, effect_instance)
+
+
+func _has_status_by_name(target: MonsResource, effect_name: String) -> int:
+	for i in target.current_status.size():
+		var e: Effects = target.current_status[i]
+		if e.effect_name == effect_name:
+			return i
+	return -1
+
+
+func _rebuild_status_label_text(target: MonsResource) -> String:
+	var names: Array[String] = []
+	for e: Effects in target.current_status:
+		names.append(e.effect_name)
+	return " ".join(names)
+
+
 
 
 
